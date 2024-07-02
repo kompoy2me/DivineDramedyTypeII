@@ -15,9 +15,9 @@ public class Moving : MonoBehaviour
 
     void Update()
     {
-        var step = speed * Time.deltaTime; 
-
-        transform.position = Vector3.MoveTowards(transform.position, finish, step);
+        //var step = speed * Time.deltaTime;
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, finish, step);
         if (Vector3.Distance(transform.position, finish) < 0.001f)
         {
             Debug.Log("end");

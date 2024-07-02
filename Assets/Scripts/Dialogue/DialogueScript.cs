@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueScript : MonoBehaviour
 {
     public Dialogue[] dialogue;
-    int length = 80;
+    int length = 62;
 
     public string first = "1";
     public string second = "2";
@@ -49,11 +49,10 @@ public class DialogueScript : MonoBehaviour
         n++;
         dialogue[n].char_name = first;
         dialogue[n].line = "Он нас тоже заметил.";
-        dialogue[n].event_type = "pause";
+        dialogue[n].event_type = "stopmove";
         n++;
         dialogue[n].char_name = fourth;
         dialogue[n].line = "Добрый вечер! В город направляетесь? ";
-        dialogue[n].event_type = "add3char";
         n++;
         dialogue[n].char_name = first;
         dialogue[n].line = "Добрый, все верно.";
@@ -66,9 +65,11 @@ public class DialogueScript : MonoBehaviour
         n++;
         dialogue[n].char_name = first;
         dialogue[n].line = "Конечно, я 1, а это 2.";
+        dialogue[n].event_type = "add3char";
         n++;
         dialogue[n].char_name = second;
         dialogue[n].line = "Здравствуй.";
+        dialogue[n].event_type = "startmove";
         n++;
         dialogue[n].char_name = fourth;
         dialogue[n].line = "А я 4, приятно познакомиться!";
@@ -114,6 +115,7 @@ public class DialogueScript : MonoBehaviour
         n++;
         dialogue[n].char_name = fourth;
         dialogue[n].line = "Нет, он бывалый походник, отлично этот лес знает. Мы беспокоились, как бы сами без него не заблудились, но обошлось.";
+        n++;
         dialogue[n].char_name = fourth;
         dialogue[n].line = "Ясно...";
         n++;
@@ -212,6 +214,7 @@ public class DialogueScript : MonoBehaviour
         n++;
         dialogue[n].char_name = first;
         dialogue[n].line = fourth + ", теперь ты с нами в одной лодке, понял? Будешь молчать до конца.";
+        dialogue[n].event_type = "end";
         Debug.Log(n);
 
     }

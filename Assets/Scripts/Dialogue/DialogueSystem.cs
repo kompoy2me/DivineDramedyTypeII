@@ -20,7 +20,7 @@ public class DialogueSystem : MonoBehaviour
     public int index;
     private int current;
 
-    bool pause = false;
+    bool pause = true;
 
     void Start()
     {
@@ -31,7 +31,8 @@ public class DialogueSystem : MonoBehaviour
         }
 
         index = 0;
-        StartDialogue();
+        StartCoroutine(PauseDialogue());
+        //StartDialogue();
     }
 
     void Update()
@@ -92,7 +93,10 @@ public class DialogueSystem : MonoBehaviour
         }
         else  
         {
+            RunEvent(dialogue[index].event_type);
             pause = true;
+            first_textbox.SetActive(false);
+            third_textbox.SetActive(false);
         }
     }
     void RunEvent(string event_name) 
@@ -103,7 +107,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
-            GameObject.Find("Event Manager").GetComponent<Events>().ChooseEvent(event_name);
+            GameObject.Find("Event Manager").GetComponent<Events>().RunEvent(event_name);
         }
     }
 

@@ -12,7 +12,8 @@ public class SwitchView : MonoBehaviour
     int current;
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
